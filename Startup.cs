@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using fullFlowershopServer.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,9 @@ namespace fullFlowershopServer
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
       services.AddTransient<IDbConnection>(v => CreateDBContext());
       // REGISTER ALL REPOSITORIES
+      services.AddTransient<FlowersRepository>();
+      services.AddTransient<BouquetsRepository>();
+
 
     }
 
